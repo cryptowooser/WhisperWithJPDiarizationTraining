@@ -1,0 +1,28 @@
+# Rich Transcription Configuration File
+
+# Data Preparation Settings
+data_preparation:
+  # File and directory locations
+  video_audio_files_location: "E:\\Rich_Transcription\\VideoAudioFiles"
+  aegisub_scripts_location: "E:\\Rich_Transcription\\AegisubScripts"
+  processed_files_folder: "E:\\Rich_Transcription\\Processed_Files"
+  acceptable_styles_location: "E:\\Rich_Transcription\\acceptable_styles.txt"
+  
+  # Time settings (in seconds) 
+  uem_settings:
+    start_time: "240.0"  
+    end_time: "1200.0"
+
+# Training Configuration
+training:
+  # Authentication and model settings
+  hf_token_environment_variable: "HF_Token_Not_Login" #Hugging Face token for downloading models. Note that this required by PyAnnote.
+  base_models:
+    embedding: "pyannote/wespeaker-voxceleb-resnet34-LM"
+    segmentation: "pyannote/segmentation-3.1"
+
+# File Output Settings
+file_output:
+  # Model output paths
+  new_embedding_model: "NOT_CURRENTLY_USED" # This is not used in the current version of the code. It's here for future use.
+  new_segmentation_model: "finetuned_segmentation_model.ckpt"

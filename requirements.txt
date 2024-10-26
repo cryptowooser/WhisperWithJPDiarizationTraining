@@ -1,0 +1,5 @@
+demucs
+openai-whisper
+pyannote.audio
+torch
+soundfile
