@@ -1,0 +1,34 @@
+Databases:
+  # tell pyannote.database where to find AMI wav files.
+  # {uri} is a placeholder for the session name (eg. ES2004c).
+  # {wav_dir} is a placeholder for the normalized wavs directory
+  anime_finetune: "{wav_dir}/{uri}.wav"
+Protocols:
+  anime_finetune:
+    SpeakerDiarization:
+      full:
+        train:
+            uri: {lists_dir}/train.full.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"
+        development:
+            uri: {lists_dir}/dev.full.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"
+        test:
+            uri: {lists_dir}/test.full.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"
+      mini:
+        train:
+            uri: {lists_dir}  /train.mini.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"
+        development:
+            uri: {lists_dir}/dev.mini.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"
+        test:
+            uri: {lists_dir}/test.mini.txt
+            annotation: "{rttm_dir}/{uri}.rttm"
+            annotated: "{uem_dir}/{uri}.uem"

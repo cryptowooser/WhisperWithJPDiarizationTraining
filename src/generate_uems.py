@@ -21,8 +21,11 @@ def generate_uems(output_directory_path, uem_start_time, uem_end_time):
             if duration <= float(uem_start_time) or duration < float(uem_end_time):
                 raise Exception("Audio file duration is less than the UEM start or end time.")    # create the corresponding UEM file
             
+            # Remove the file extension from the filename
+            session_name = os.path.splitext(filename)[0]
+            
             uem_filename = filename.replace('.wav', '.uem')
             uem_file_path = os.path.join(uem_dir, uem_filename)
             with open(uem_file_path, 'w') as f:
                 # write the UEM line (session, channel, start_time, end_time)
-                f.write(f'{filename} 1 {uem_start_time} {uem_end_time}\n')
+                f.write(f'{session_name} 1 {uem_start_time} {uem_end_time}')
